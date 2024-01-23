@@ -52,6 +52,7 @@ const EditNote = () => {
 
   useEffect(() => {
     fetchNoteById();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

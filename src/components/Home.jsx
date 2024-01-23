@@ -73,6 +73,7 @@ const Home = () => {
       navigate("/login");
     }
     fetchNotes();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleDeletePopUP = (id) => {
