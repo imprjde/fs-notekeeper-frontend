@@ -72,7 +72,7 @@ const Home = () => {
     if (!userInfo) {
       navigate("/login");
     }
-    fetchNotes();
+    // fetchNotes();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -151,8 +151,8 @@ const Home = () => {
           )}
         </AnimatePresence>
 
-        <div className="flex m-auto md:justify-start  justify-between px-5 md:px-0 items-center pt-5 ">
-          <span className="text-white text-left text-2xl md:text-3xl ml-0 md:ml-4 font-bold tracking-wide">
+        <div className="flex m-auto md:justify-start  justify-between px-5 md:px-0 items-center pt-10 ">
+          <span className="text-white text-left text-2xl  md:text-3xl ml-0 md:ml-4 font-bold tracking-wide">
             {userName?.split("").map((ele, i) => (
               <motion.span
                 initial={{ opacity: 0 }}
@@ -176,7 +176,7 @@ const Home = () => {
             />
           </span>
         </div>
-        <div className=" m-auto justify-center  mt-10 bg-cyan-500  pb-5 bg-opacity-30 rounded-lg w-[90%] md:w-[80%]">
+        <div class="m-auto justify-center mt-10 bg-white shadow-xl shadow-purple-600 pb-5 bg-opacity-10 rounded-lg w-[90%] md:w-[80%]">
           <div className="text-white m-auto pt-7 items-center px-5 flex justify-between">
             <span className="text-xl font-semibold tracking-wider">
               Your Notes
