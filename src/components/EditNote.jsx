@@ -118,7 +118,7 @@ const EditNote = () => {
         )}
       </AnimatePresence>
       <div
-        className="min-h-screen h-full m-auto flex justify-center items-center pb-10"
+        className="min-h-screen h-full m-auto flex justify-center items-center pb-40 md:pb-10"
         style={gradientStyle}
       >
         <div className="bg-white bg-opacity-50 w-[90%] md:w-[50%] rounded-lg p-4">
