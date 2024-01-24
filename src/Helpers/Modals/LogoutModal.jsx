@@ -5,7 +5,7 @@ import LogoutLoader from "../Loaders/LogoutLoader";
 
 const LogoutModal = () => {
   const [spinner, setSpinner] = useState(false);
-  const { isLogoutModalOpen, setIsLogoutModalOpen } = useContext(appContext);
+  const { setIsLogoutModalOpen } = useContext(appContext);
   const navigate = useNavigate();
   const handleLogout = () => {
     setSpinner(true);

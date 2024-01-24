@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { FaCheckCircle } from "react-icons/fa";
-import { loginErrorNotify } from "../Helpers/Popups/popups";
+import { loginErrorNotify, loginNotify } from "../Helpers/Popups/popups";
 import { BASE_URL } from "../Helpers/constant";
 
 const Login = () => {
@@ -14,28 +12,6 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
-
-  const icon = (
-    <span className="text-orange-400 bg-white rounded-full">
-      <FaCheckCircle size={22} />
-    </span>
-  );
-
-  const loginNotify = () => {
-    toast.success(`Login successful !`, {
-      position: "top-center",
-      icon: icon,
-      style: {
-        background:
-          "linear-gradient(187deg, rgba(252,69,174,1) 13%, rgba(27,194,215,1) 45%, rgba(33,150,243,1) 100%)",
-        color: "#fff",
-        borderRadius: "5px",
-      },
-      progressStyle: {
-        background: "#fff",
-      },
-    });
-  };
 
   const gradientStyle = {
     background: "linear-gradient(rgb(56, 189, 248), rgb(186, 230, 253))",
@@ -89,7 +65,7 @@ const Login = () => {
       className="bg-cover bg-center  h-screen flex flex-col items-center  justify-center"
       style={gradientStyle}
     >
-      <ToastContainer />
+      {/* <ToastContainer /> */}
       <div className="w-[90%]  px-5 md:w-[60%] bg-gray-800 rounded-md bg-opacity-30 text-white pb-5">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <div className="mt-5 md:text-4xl font-extrabold text-sky-500 space-x-2">

@@ -113,6 +113,27 @@ export const somethingWentWrongNotify = () => {
     autoClose: 2000,
   });
 };
+export const loginNotify = () => {
+  const icon = (
+    <span className="text-orange-400 bg-white rounded-full">
+      <FaCheckCircle size={22} />
+    </span>
+  );
+  toast.success(`Login successful !`, {
+    position: "top-center",
+    icon: icon,
+    style: {
+      background:
+        "linear-gradient(187deg, rgba(252,69,174,1) 13%, rgba(27,194,215,1) 45%, rgba(33,150,243,1) 100%)",
+      color: "#fff",
+      borderRadius: "5px",
+    },
+    progressStyle: {
+      background: "#fff",
+    },
+  });
+};
+
 export const loginErrorNotify = () => {
   toast.error("Network Error", {
     position: "top-center",

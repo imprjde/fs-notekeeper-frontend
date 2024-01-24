@@ -286,16 +286,16 @@ const Header = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 200 }}
               transition={{ duration: 0.1, ease: "easeInOut" }}
-              className="md:hidden bottom-0  absolute top-0 right-0 border   transition ease-out delay-150 duration-250 w-[180px] bg-white bg-opacity-90  h-screen z-50 shadow-md opacity-100"
+              className="md:hidden bottom-0  absolute top-0 right-0 border transition ease-out delay-150 duration-250 w-[190px] bg-white bg-opacity-90  h-screen z-50 shadow-md opacity-100"
             >
               <div
                 onClick={handleToggleNav}
-                className="mt-5 cursor-pointer  text-gray-900  flex m-auto justify-end mr-3"
+                className="mt-7 cursor-pointer  text-gray-900   flex m-auto justify-end mr-6"
               >
                 <IoClose size={25} />
               </div>
 
-              <div className="m-auto justify-center flex flex-col space-y-2 mt-10 bg-white  py-5 mx-2 rounded-lg">
+              <div className="m-auto justify-center  shadow-lg shadow-purple-700 flex flex-col space-y-2 mt-14 bg-white  py-5   mx-3 rounded-lg">
                 <span className="m-auto justify-center flex flex-col">
                   <img
                     className="w-20 h-20 rounded-full"
