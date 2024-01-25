@@ -5,6 +5,7 @@ import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import { loginErrorNotify, loginNotify } from "../Helpers/Popups/popups";
 import { BASE_URL } from "../Helpers/constant";
+import { FaCopyright } from "react-icons/fa";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({});
@@ -13,14 +14,14 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
-  const gradientStyle = {
-    background: "linear-gradient(rgb(56, 189, 248), rgb(186, 230, 253))",
-    height: "100vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    color: "white",
-  };
+  // const gradientStyle = {
+  //   background: "linear-gradient(rgb(56, 189, 248), rgb(186, 230, 253))",
+  //   height: "100vh",
+  //   display: "flex",
+  //   justifyContent: "center",
+  //   alignItems: "center",
+  //   color: "white",
+  // };
 
   const LoginLoader = (
     <div className="flex space-x-1 m-auto items-center ">
@@ -62,11 +63,12 @@ const Login = () => {
 
   return (
     <div
-      className="bg-cover bg-center  h-screen flex flex-col items-center  justify-center"
-      style={gradientStyle}
+      className="bg-cover bg-center bg-gradient-to-b from-gray-900   to-purple-700   h-screen flex flex-col items-center  justify-center"
+      // style={gradientStyle}
     >
       {/* <ToastContainer /> */}
-      <div className="w-[90%]  px-5 md:w-[60%] bg-gray-800 rounded-md bg-opacity-30 text-white pb-5">
+      {/* <div className="w-[90%]  px-5 md:w-[60%] bg-gray rounded-md bg-gray-700 bg-opacity-10 shadow-xl shadow-sky-700 text-white pb-5"> */}
+      <div className="w-[90%]  px-5 md:w-[60%] bg-gray rounded-md  text-white pb-5    bg-gradient-to-t from-gray-900   to-purple-700 shadow-xl shadow-purple-700">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <div className="mt-5 md:text-4xl font-extrabold text-sky-500 space-x-2">
             <span className="text-4xl ">THE</span>
@@ -115,7 +117,7 @@ const Login = () => {
                 </label>
                 <div className="text-sm cursor-pointer">
                   <span className="font-semibold text-gray-800 hover:text-gray-900">
-                    Forgot password?
+                    {/* Forgot password? */}
                   </span>
                 </div>
               </div>
@@ -157,16 +159,22 @@ const Login = () => {
 
             <div>
               {/* <button
-                type="submit"
-                className="flex w-full justify-center rounded-md bg-orange-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                {isLoading ? LoginLoader : "Login"}
-              </button> */}
-
-              <button
                 // disabled={isPicUploading || isLoading}
                 type="submit"
                 className="flex w-full justify-center mt-5 rounded-md bg-orange-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                {isLoading ? (
+                  LoginLoader
+                ) : (
+                  <span className="text-base font-bold tracking-wider">
+                    Login
+                  </span>
+                )}
+              </button> */}
+              <button
+                // disabled={isPicUploading || isLoading}
+                type="submit"
+                className="flex w-full justify-center mt-5 rounded-md bg-fuchsia-700 opacity-100 shadow-xl shadow-purple-700 px-3 py-1.5 text-sm font-semibold leading-6 text-white  hover:bg-fuchsia-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 {isLoading ? (
                   LoginLoader
@@ -179,7 +187,7 @@ const Login = () => {
             </div>
           </form>
 
-          <p className="mt-10 text-center text-sm font-bold tracking-widest text-white ">
+          <p className="mt-10 text-center text-sm font-medium tracking-widest text-white ">
             Not a member?
             <Link
               to="/signup"
@@ -188,6 +196,12 @@ const Login = () => {
               Signup Here
             </Link>
           </p>
+        </div>
+        <div className="m-auto flex items-center mt-6 space-x-1 justify-center">
+          <span>
+            <FaCopyright size={15} />
+          </span>
+          <span className="font-medium tracking-wide">Prajwal.dev</span>
         </div>
       </div>
     </div>

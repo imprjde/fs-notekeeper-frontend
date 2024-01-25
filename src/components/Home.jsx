@@ -152,7 +152,10 @@ const Home = () => {
         </AnimatePresence>
 
         <div className="flex m-auto md:justify-start  justify-between px-5 md:px-0 items-center pt-10 ">
-          <span className="text-white text-left text-2xl  md:text-3xl ml-0 md:ml-4 font-bold tracking-wide">
+          <span
+            style={{ textShadow: "4px 4px 4px rgb(88,40,97)" }}
+            className="text-white text-left text-2xl  md:text-3xl ml-0 md:ml-4 font-bold tracking-wide"
+          >
             {userName?.split("").map((ele, i) => (
               <motion.span
                 initial={{ opacity: 0 }}
@@ -184,6 +187,20 @@ const Home = () => {
 
             <Link
               to="/createNote"
+              className="text-lg bg-orange-500
+                shadow-xl shadow-orange-800 inline-flex items-center px-3 py-0.5 rounded-md cursor-pointer font-medium tracking-wide"
+              // style={{
+              //   background:
+              //     "linear-gradient(113deg, rgba(88,40,97,1) 39%, rgba(178,199,199,1) 87%)",
+              // }}
+            >
+              Add Note{" "}
+              <span className="ml-1 mt-[2px]">
+                <FaPlus />
+              </span>
+            </Link>
+            {/* <Link
+              to="/createNote"
               className="text-lg border  border-purple-500  shadow-xl shadow-purple-400 inline-flex items-center px-3 py-0.5 rounded-lg cursor-pointer font-medium tracking-wide"
               style={{
                 background: "linear-gradient(0deg, #B20CDD, #01DEFF)",
@@ -193,7 +210,7 @@ const Home = () => {
               <span className="ml-1 mt-[2px]">
                 <FaPlus />
               </span>
-            </Link>
+            </Link> */}
           </div>
           {isLoading && (
             <div className="md:mt-10 mt-14  space-y-5">
