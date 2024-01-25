@@ -7,6 +7,7 @@ import {
   signupErrorNotify,
 } from "../Helpers/Popups/popups";
 import { BASE_URL } from "../Helpers/constant";
+import { FaCopyright } from "react-icons/fa";
 
 const Signup = () => {
   const [signupData, setSignupData] = useState({});
@@ -17,14 +18,14 @@ const Signup = () => {
   const [formError, setFormError] = useState(null);
   const navigate = useNavigate();
 
-  const gradientStyle = {
-    background: "linear-gradient(rgb(56, 189, 248), rgb(186, 230, 253))",
-    height: "100%",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    color: "white",
-  };
+  // const gradientStyle = {
+  //   background: "linear-gradient(rgb(56, 189, 248), rgb(186, 230, 253))",
+  //   height: "100%",
+  //   display: "flex",
+  //   justifyContent: "center",
+  //   alignItems: "center",
+  //   color: "white",
+  // };
 
   const signupLoader = (
     <div className="flex space-x-1 m-auto items-center ">
@@ -131,37 +132,42 @@ const Signup = () => {
   console.log("PIC", pic);
 
   return (
-    <div
-      className="bg-cover bg-center min-h-screen flex flex-col items-center justify-center"
-      style={gradientStyle}
-    >
+    <div className="bg-cover bg-center bg-gradient-to-b from-gray-900   to-purple-700 min-h-screen flex flex-col items-center justify-center">
       <ToastContainer />
-      <div className="w-[90%]  px-5 md:w-[60%] bg-black rounded-md bg-opacity-30 m-10 text-white pb-5">
-        {/* <div className="mt-5 md:text-4xl font-extrabold text-sky-500 space-x-2">
-          <span className="text-4xl ">THE</span>
-          <span className="text-orange-500 text-4xl drop-shadow-white drop-shadow-xl">
+      <div className="w-[90%]  px-5 md:w-[60%]  rounded-md  m-10 text-white pb-5 bg-gradient-to-t from-gray-900   to-purple-700 shadow-xl shadow-purple-700">
+        <div className="mt-5 md:text-4xl tracking-wider font-extrabold text-purple-600 space-x-2">
+          <span
+            style={{ textShadow: "4px 4px 4px rgb(0,0,0)" }}
+            className="text-4xl "
+          >
+            PURPLE
+          </span>
+          <span
+            style={{ textShadow: "4px 4px 4px rgb(0,0,0)" }}
+            className="text-white  tracking-wider  text-4xl drop-shadow-white drop-shadow-xl"
+          >
             NOTE
           </span>
-        </div> */}
+        </div>
 
         <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form onSubmit={handleSignup} className="space-y-4">
+          <form onSubmit={handleSignup} className="space-y-4 md:space-x-2">
             {!pic ? (
               <div className="m-auto flex justify-center group cursor-pointer relative">
                 <label htmlFor="avatarInput" className="relative">
                   <img
-                    className="w-24 h-24 rounded-full  cursor-pointer z-20 border-2 border-white"
+                    className="w-20 h-2w-20 rounded-full  cursor-pointer z-20 border-2 border-white"
                     src="https://i.ibb.co/5FTR3vY/avatar.png"
                     alt="avatar"
                   />
                   <input
                     onChange={(e) => postDetails(e.target.files[0])}
                     id="avatarInput"
-                    className="w-24 h-24 rounded-full cursor-pointer opacity-0 absolute top-0 left-0 z-10"
+                    className="w-20 h-2w-20 rounded-full cursor-pointer opacity-0 absolute top-0 left-0 z-10"
                     type="file"
                   />
                 </label>
-                <span className="w-24 h-w-24 flex m-auto mt-6 text-sm justify-center text-white font-semibold tracking-wider items-center absolute opacity-0 group-hover:opacity-100 ">
+                <span className="w-20 h-w-20 flex m-auto mt-6 text-sm justify-center text-white font-semibold tracking-wider items-center absolute opacity-0 group-hover:opacity-100 ">
                   Upload Profile
                 </span>
               </div>
@@ -169,7 +175,7 @@ const Signup = () => {
               <div className="m-auto flex justify-center group cursor-pointer relative">
                 <label htmlFor="avatarInput" className="relative">
                   <img
-                    className="w-24 h-24 rounded-full  cursor-pointer z-20 border-2 border-white"
+                    className="w-20 h-2w-20 rounded-full  cursor-pointer z-20 border-2 border-white"
                     src={pic}
                     alt="profile pic"
                   />
@@ -272,7 +278,7 @@ const Signup = () => {
                 <button
                   disabled={isPicUploading || isLoading}
                   type="submit"
-                  className="flex w-full justify-center mt-5 rounded-md bg-orange-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="flex w-full justify-center mt-5 rounded-md bg-fuchsia-700 opacity-100 shadow-xl shadow-purple-700 px-3 py-1.5 text-sm font-semibold leading-6 text-white  hover:bg-fuchsia-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   {isPicUploading ? (
                     <div className="flex text-base ">
@@ -291,15 +297,21 @@ const Signup = () => {
             </div>
           </form>
 
-          <p className="mt-5 text-center text-sm font-bold tracking-widest text-white">
+          <p className=" mt-10 md:mt-5 text-center text-sm font-medium tracking-widest text-white ">
             Already have a account?
             <Link
               to="/login"
-              className="font-semibold tracking-widest leading-6 ml-1 text-gray-800 hover:text-gray-900"
+              className="font-semibold tracking-widest leading-6 ml-1 text-sky-300 hover:text-sky-400"
             >
               Login Here
             </Link>
           </p>
+        </div>
+        <div className="m-auto flex items-center mt-6 md:mt-4 space-x-1 justify-center">
+          <span>
+            <FaCopyright size={15} />
+          </span>
+          <span className="font-medium tracking-wide">Prajwal.dev</span>
         </div>
       </div>
     </div>

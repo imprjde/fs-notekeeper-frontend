@@ -62,17 +62,21 @@ const Login = () => {
   };
 
   return (
-    <div
-      className="bg-cover bg-center bg-gradient-to-b from-gray-900   to-purple-700   h-screen flex flex-col items-center  justify-center"
-      // style={gradientStyle}
-    >
+    <div className="bg-gradient-to-b from-gray-900   to-purple-700   h-screen flex flex-col items-center  justify-center">
       {/* <ToastContainer /> */}
-      {/* <div className="w-[90%]  px-5 md:w-[60%] bg-gray rounded-md bg-gray-700 bg-opacity-10 shadow-xl shadow-sky-700 text-white pb-5"> */}
-      <div className="w-[90%]  px-5 md:w-[60%] bg-gray rounded-md  text-white pb-5    bg-gradient-to-t from-gray-900   to-purple-700 shadow-xl shadow-purple-700">
+      <div className="w-[90%]  px-5 md:w-[60%]  rounded-md  text-white pb-5  bg-gradient-to-t from-gray-900   to-purple-700 shadow-xl shadow-purple-700">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <div className="mt-5 md:text-4xl font-extrabold text-sky-500 space-x-2">
-            <span className="text-4xl ">THE</span>
-            <span className="text-orange-500 text-4xl drop-shadow-white drop-shadow-xl">
+          <div className="mt-5 md:text-4xl tracking-wider font-extrabold text-purple-600 space-x-2">
+            <span
+              style={{ textShadow: "4px 4px 4px rgb(0,0,0)" }}
+              className="text-4xl "
+            >
+              PURPLE
+            </span>
+            <span
+              style={{ textShadow: "4px 4px 4px rgb(0,0,0)" }}
+              className="text-white  tracking-wider  text-4xl drop-shadow-white drop-shadow-xl"
+            >
               NOTE
             </span>
           </div>
@@ -191,7 +195,7 @@ const Login = () => {
             Not a member?
             <Link
               to="/signup"
-              className="font-semibold tracking-widest leading-6 ml-1 text-gray-800 hover:text-gray-900"
+              className="font-semibold tracking-widest leading-6 ml-1 text-sky-300 hover:text-sky-400"
             >
               Signup Here
             </Link>
