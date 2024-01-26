@@ -25,10 +25,6 @@ const Profile = () => {
 
   console.log("USERINFO DA->", userInfo);
   const inputRef = useRef();
-  const gradientStyle = {
-    background:
-      "linear-gradient(to top, rgb(56, 189, 248), rgb(186, 230, 253))",
-  };
 
   const updateProfileLoader = (
     <div role="status">
@@ -131,7 +127,6 @@ const Profile = () => {
   return (
     <>
       <Header />
-
       <AnimatePresence>
         {" "}
         {isLogoutModalOpen && (
@@ -146,8 +141,7 @@ const Profile = () => {
         )}
       </AnimatePresence>
       <div
-        className="min-h-screen h-full  m-auto flex justify-center items-center pb-10"
-        style={gradientStyle}
+        className="min-h-screen h-full bg-gradient-to-b from-purple-700  to-black  m-auto flex justify-center items-center pb-10"
       >
         <ToastContainer />
         <div className="bg-white bg-opacity-70 w-[90%] md:w-[30%] rounded-md px-5 py-5">

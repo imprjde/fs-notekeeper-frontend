@@ -7,10 +7,6 @@ import { FaSearch } from "react-icons/fa";
 import { appContext } from "../context";
 import { motion, AnimatePresence } from "framer-motion";
 
-// const gradientStyle = {
-//   background: "linear-gradient(rgb(56, 189, 248), rgb(186, 230, 253)",
-// };
-
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
@@ -32,11 +28,7 @@ const Header = () => {
   }, []);
 
   return (
-    // <div
-    //   className="w-full h-[75px] shadow-xl shadow-sky-600 z-40 border-b border-b-gray-400 top-0 sticky  "
-    //   style={gradientStyle}
-    // >
-    <div className="w-full h-[75px]  bg-gradient-to-r from-gray-900 to-purple-700 shadow-xl shadow-sky-200 z-40 top-0 sticky  ">
+    <div className="w-full h-[80px]  bg-gradient-to-r from-gray-900 to-purple-700 shadow-lg shadow-cyan-400 z-40 top-0 sticky  ">
       <div className="m-auto h-full justify-between flex items-center px-2 md:px-8">
         <Link
           to="/"
@@ -55,7 +47,7 @@ const Header = () => {
             NOTE
           </span>
         </Link>
-        <form className=" items-center hidden md:flex -space-x-2 mr-[30px] md:m-auto">
+        <form className=" items-center hidden md:flex -space-x-2 mr-[30px] md:m-auto ">
           <input
             onChange={(e) => setSearchQuery(e.target.value)}
             value={searchQuery}
@@ -64,10 +56,10 @@ const Header = () => {
             className="block w-[160px]  md:w-[300px]  rounded-md focus:outline-none focus:ring-0  font-semibold border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400   sm:text-sm sm:leading-6"
           />
 
-          <button className="bg-white border border-gray-400  md:hidden py-[7px] text-sky-600 px-5  rounded-r-md">
+          <button className="bg-white border border-gray-400  md:hidden py-[7px] text-purple-800  px-5  rounded-r-md">
             <FaSearch size={22} />
           </button>
-          <button className="bg-white border  hidden md:flex py-[6px] text-sky-600 px-5  rounded-r-md ">
+          <button className="bg-white border  hidden md:flex py-[6px] text-purple-800 px-5  rounded-r-md ">
             <FaSearch size={22} />
           </button>
         </form>

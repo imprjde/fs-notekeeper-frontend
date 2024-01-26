@@ -176,7 +176,7 @@ const Login = () => {
                 )}
               </button> */}
               <button
-                // disabled={isPicUploading || isLoading}
+                disabled={isLoading}
                 type="submit"
                 className="flex w-full justify-center mt-5 rounded-md bg-fuchsia-700 opacity-100 shadow-xl shadow-purple-700 px-3 py-1.5 text-sm font-semibold leading-6 text-white  hover:bg-fuchsia-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >

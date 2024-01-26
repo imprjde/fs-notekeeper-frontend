@@ -72,7 +72,7 @@ const Home = () => {
     if (!userInfo) {
       navigate("/login");
     }
-    fetchNotes();
+    // fetchNotes();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -155,7 +155,7 @@ const Home = () => {
         <div className="flex m-auto md:justify-start  justify-between px-5 md:px-0 items-center pt-10 ">
           <span
             style={{ textShadow: "4px 4px 4px rgb(88,40,97)" }}
-            className="text-white text-left text-2xl  md:text-3xl ml-0 md:ml-4 font-bold tracking-wide"
+            className="text-white text-left  text-2xl  md:text-3xl ml-0 md:ml-4 font-bold tracking-wide md:tracking-wider"
           >
             {userName?.split("").map((ele, i) => (
               <motion.span
@@ -180,7 +180,7 @@ const Home = () => {
             />
           </span>
         </div>
-        <div class="m-auto justify-center mt-10 bg-white shadow-xl shadow-white pb-5 bg-opacity-10 rounded-lg w-[90%] md:w-[80%]">
+        <div class="m-auto justify-center mt-10 bg-white shadow-md shadow-white  pb-5 bg-opacity-10 rounded-lg w-[90%] md:w-[80%]">
           <div className="text-white m-auto pt-7 items-center px-5 flex justify-between">
             <span className="text-xl font-semibold tracking-wider">
               Your Notes
@@ -188,8 +188,7 @@ const Home = () => {
 
             <Link
               to="/createNote"
-              className="text-lg bg-orange-500
-                shadow-xl shadow-orange-800 inline-flex items-center px-3 py-0.5 rounded-md cursor-pointer font-medium tracking-wide"
+              className="text-lg bg-gradient-to-br from-gray-950 to-gray-600 shadow-md shadow-cyan-400 hover:shadow-sky-300 inline-flex items-center px-3 py-0.5 rounded-[4px] cursor-pointer font-medium tracking-wide"
             >
               Add Note{" "}
               <span className="ml-1 mt-[2px]">
