@@ -36,13 +36,24 @@ const Header = () => {
     //   className="w-full h-[75px] shadow-xl shadow-sky-600 z-40 border-b border-b-gray-400 top-0 sticky  "
     //   style={gradientStyle}
     // >
-    <div className="w-full h-[75px] shadow-xl bg-gradient-to-r from-gray-900 to-purple-700 shadow-purple-600 z-40 border-b border-b-gray-400 top-0 sticky  ">
+    <div className="w-full h-[75px] shadow-xl bg-gradient-to-r from-gray-900 to-purple-700 shadow-purple-600 z-40 top-0 sticky  ">
       <div className="m-auto h-full justify-between flex items-center px-2 md:px-8">
         <Link
           to="/"
-          className="text-2xl pl-2 md:pl-0 md:text-4xl font-extrabold text-sky-500"
+          className="md:text-4xl cursor-pointer tracking-wider font-extrabold text-purple-600 space-x-2"
         >
-          THE <span className="text-orange-500">NOTE</span>
+          <span
+            style={{ textShadow: "4px 4px 4px rgb(255,255,255)" }}
+            className="text-2xl md:text-4xl "
+          >
+            PURPLE
+          </span>
+          <span
+            style={{ textShadow: "4px 4px 4px rgb(255,255,255)" }}
+            className="text-white  tracking-wider text-2xl md:text-4xl drop-shadow-white drop-shadow-xl"
+          >
+            NOTE
+          </span>
         </Link>
         <form className=" items-center hidden md:flex -space-x-2 mr-[30px] md:m-auto">
           <input
@@ -109,13 +120,13 @@ const Header = () => {
         <div className="flex m-auto h-full items-center md:hidden space-x-8 mr-3">
           <span
             onClick={() => setSearchBarOpen(!searchBarOpen)}
-            className="text-gray-700 cursor-pointer"
+            className="text-gray-100 cursor-pointer"
           >
             <FaSearch size={22} />
           </span>
           <span
             onClick={handleToggleNav}
-            className="bg-sky-300 px-2 py-1 md:hidden rounded-md cursor-pointer"
+            className="bg-gradient-to-b from-fuchsia-500 to-fuchsia-900 px-2 py-1 md:hidden text-white rounded-md cursor-pointer"
           >
             <GiHamburgerMenu size={25} />
           </span>

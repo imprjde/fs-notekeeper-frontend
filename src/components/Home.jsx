@@ -72,7 +72,7 @@ const Home = () => {
     if (!userInfo) {
       navigate("/login");
     }
-    fetchNotes();
+    // fetchNotes();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -107,7 +107,8 @@ const Home = () => {
   return (
     <>
       <Header />
-      <div className="min-h-screen h-full pb-10" style={gradientStyle}>
+      {/* <div className="min-h-screen h-full pb-10" style={gradientStyle}> */}
+      <div className="min-h-screen h-full pb-10 bg">
         {deleteModal && <DeleteNoteModal handleDelete={handleDelete} />}
         <AnimatePresence>
           {searchBarOpen && (
