@@ -41,10 +41,10 @@ const Home = () => {
     setNotes(copy);
   };
 
-  const gradientStyle = {
-    background:
-      "linear-gradient(to top, rgb(56, 189, 248), rgb(186, 230, 253))",
-  };
+  // const gradientStyle = {
+  //   background:
+  //     "linear-gradient(to top, rgb(56, 189, 248), rgb(186, 230, 253))",
+  // };
 
   const fetchNotes = async () => {
     try {
@@ -72,7 +72,7 @@ const Home = () => {
     if (!userInfo) {
       navigate("/login");
     }
-    // fetchNotes();
+    fetchNotes();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -107,8 +107,8 @@ const Home = () => {
   return (
     <>
       <Header />
-      {/* <div className="min-h-screen h-full pb-10" style={gradientStyle}> */}
-      <div className="min-h-screen h-full pb-10 bg">
+      {/* <div className="min-h-screen h-full pb-10 bg-gradient-to-b from-purple-600  to-black"> */}
+      <div className="min-h-screen h-full pb-10 bg-gradient-to-b from-purple-700  to-black">
         {deleteModal && <DeleteNoteModal handleDelete={handleDelete} />}
         <AnimatePresence>
           {searchBarOpen && (
@@ -180,7 +180,7 @@ const Home = () => {
             />
           </span>
         </div>
-        <div class="m-auto justify-center mt-10 bg-white shadow-xl shadow-purple-600 pb-5 bg-opacity-10 rounded-lg w-[90%] md:w-[80%]">
+        <div class="m-auto justify-center mt-10 bg-white shadow-xl shadow-white pb-5 bg-opacity-10 rounded-lg w-[90%] md:w-[80%]">
           <div className="text-white m-auto pt-7 items-center px-5 flex justify-between">
             <span className="text-xl font-semibold tracking-wider">
               Your Notes
@@ -190,28 +190,12 @@ const Home = () => {
               to="/createNote"
               className="text-lg bg-orange-500
                 shadow-xl shadow-orange-800 inline-flex items-center px-3 py-0.5 rounded-md cursor-pointer font-medium tracking-wide"
-              // style={{
-              //   background:
-              //     "linear-gradient(113deg, rgba(88,40,97,1) 39%, rgba(178,199,199,1) 87%)",
-              // }}
             >
               Add Note{" "}
               <span className="ml-1 mt-[2px]">
                 <FaPlus />
               </span>
             </Link>
-            {/* <Link
-              to="/createNote"
-              className="text-lg border  border-purple-500  shadow-xl shadow-purple-400 inline-flex items-center px-3 py-0.5 rounded-lg cursor-pointer font-medium tracking-wide"
-              style={{
-                background: "linear-gradient(0deg, #B20CDD, #01DEFF)",
-              }}
-            >
-              Add Note{" "}
-              <span className="ml-1 mt-[2px]">
-                <FaPlus />
-              </span>
-            </Link> */}
           </div>
           {isLoading && (
             <div className="md:mt-10 mt-14  space-y-5">

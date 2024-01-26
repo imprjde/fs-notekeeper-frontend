@@ -36,7 +36,7 @@ const Header = () => {
     //   className="w-full h-[75px] shadow-xl shadow-sky-600 z-40 border-b border-b-gray-400 top-0 sticky  "
     //   style={gradientStyle}
     // >
-    <div className="w-full h-[75px] shadow-xl bg-gradient-to-r from-gray-900 to-purple-700 shadow-purple-600 z-40 top-0 sticky  ">
+    <div className="w-full h-[75px]  bg-gradient-to-r from-gray-900 to-purple-700 shadow-xl shadow-sky-200 z-40 top-0 sticky  ">
       <div className="m-auto h-full justify-between flex items-center px-2 md:px-8">
         <Link
           to="/"
@@ -75,7 +75,7 @@ const Header = () => {
         {userInfo !== null ? (
           <span className="space-x-3 hidden md:flex items-center mr-5">
             <Link to="/profile">
-              <span className="flex m-auto items-center cursor-pointer space-x-3 rounded-md bg-black bg-opacity-70  shadow-lg shadow-purple-700  px-4 py-1.5">
+              <span className="flex m-auto items-center cursor-pointer space-x-3 rounded-md bg-gray-900 bg-opacity-80  shadow-lg shadow-gray-300  px-4 py-1.5">
                 <img
                   src={userInfo.pic}
                   className=" h-[40px] w-[40px] rounded-full  cursor-pointer"
