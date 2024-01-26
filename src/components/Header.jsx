@@ -7,9 +7,9 @@ import { FaSearch } from "react-icons/fa";
 import { appContext } from "../context";
 import { motion, AnimatePresence } from "framer-motion";
 
-const gradientStyle = {
-  background: "linear-gradient(rgb(56, 189, 248), rgb(186, 230, 253)",
-};
+// const gradientStyle = {
+//   background: "linear-gradient(rgb(56, 189, 248), rgb(186, 230, 253)",
+// };
 
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -32,10 +32,11 @@ const Header = () => {
   }, []);
 
   return (
-    <div
-      className="w-full h-[75px] shadow-xl shadow-sky-600 z-40 border-b border-b-gray-400 top-0 sticky  "
-      style={gradientStyle}
-    >
+    // <div
+    //   className="w-full h-[75px] shadow-xl shadow-sky-600 z-40 border-b border-b-gray-400 top-0 sticky  "
+    //   style={gradientStyle}
+    // >
+    <div className="w-full h-[75px] shadow-xl bg-gradient-to-r from-gray-900 to-purple-700 shadow-purple-600 z-40 border-b border-b-gray-400 top-0 sticky  ">
       <div className="m-auto h-full justify-between flex items-center px-2 md:px-8">
         <Link
           to="/"

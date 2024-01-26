@@ -134,7 +134,7 @@ const Signup = () => {
   return (
     <div className="bg-cover bg-center bg-gradient-to-b from-gray-900   to-purple-700 min-h-screen flex flex-col items-center justify-center">
       <ToastContainer />
-      <div className="w-[90%]  px-5 md:w-[60%]  rounded-md  m-10 text-white pb-5 bg-gradient-to-t from-gray-900   to-purple-700 shadow-xl shadow-purple-700">
+      <div className="w-[90%]  px-5 md:w-[60%]  rounded-md  m-10 text-white pb-5 bg-gradient-to-t from-gray-900 to-purple-700 shadow-xl shadow-purple-700">
         <div className="mt-5 md:text-4xl tracking-wider font-extrabold text-purple-600 space-x-2">
           <span
             style={{ textShadow: "4px 4px 4px rgb(0,0,0)" }}

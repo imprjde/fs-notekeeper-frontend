@@ -72,7 +72,7 @@ const Home = () => {
     if (!userInfo) {
       navigate("/login");
     }
-    // fetchNotes();
+    fetchNotes();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
