@@ -29,20 +29,20 @@ const Header = () => {
 
   return (
     <div className="w-full h-[80px]  bg-gradient-to-r from-gray-900 to-purple-700 shadow-lg shadow-cyan-400 z-40 top-0 sticky  ">
-      <div className="m-auto h-full justify-between flex items-center px-2 md:px-8">
+      <div className="m-auto h-full justify-between flex items-center pl-3 pr-2 md:px-8">
         <Link
           to="/"
-          className="md:text-4xl cursor-pointer tracking-wider font-extrabold text-purple-600 space-x-2"
+          className=" cursor-pointer tracking-wider font-extrabold space-x-2"
         >
           <span
-            style={{ textShadow: "4px 4px 4px rgb(255,255,255)" }}
-            className="text-2xl md:text-4xl "
+            style={{ textShadow: "4px 4px 4px  rgb(0,0,0)" }}
+            className="text-[26px] text-purple-800  md:text-4xl "
           >
             PURPLE
           </span>
           <span
-            style={{ textShadow: "4px 4px 4px rgb(255,255,255)" }}
-            className="text-white  tracking-wider text-2xl md:text-4xl drop-shadow-white drop-shadow-xl"
+            style={{ textShadow: "4px 4px 4px rgb(0,0,0)" }}
+            className="text-white  tracking-wider text-[26px] md:text-4xl drop-shadow-white drop-shadow-xl"
           >
             NOTE
           </span>

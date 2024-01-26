@@ -127,6 +127,7 @@ const Profile = () => {
   return (
     <>
       <Header />
+
       <AnimatePresence>
         {" "}
         {isLogoutModalOpen && (
