@@ -125,12 +125,13 @@ const Header = () => {
         </div>
         <AnimatePresence>
           {isNavOpen && (
+           
             <motion.div
               initial={{ opacity: 0, x: 200 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 200 }}
               transition={{ duration: 0.1, ease: "easeInOut" }}
-              className="md:hidden bottom-0  absolute top-0 right-0 border transition ease-out delay-150 duration-250 w-[190px] bg-white bg-opacity-90  h-screen z-50 shadow-md opacity-100"
+              className="md:hidden bottom-0  absolute top-0 right-0  transition ease-out delay-150 duration-250 w-[190px] bg-gradient-to-b from-purple-100 to-purple-700 bg-opacity-90  h-screen z-50 shadow-md opacity-100"
             >
               <div
                 onClick={handleToggleNav}
@@ -139,7 +140,7 @@ const Header = () => {
                 <IoClose size={25} />
               </div>
 
-              <div className="m-auto justify-center  shadow-lg shadow-purple-700 flex flex-col space-y-2 mt-14 bg-white  py-5   mx-3 rounded-lg">
+              <div className="m-auto justify-center  shadow-lg shadow-sky-400 flex flex-col space-y-2 mt-14 bg-white  py-5   mx-3 rounded-lg">
                 <span className="m-auto justify-center flex flex-col">
                   <img
                     className="w-20 h-20 rounded-full"
@@ -155,7 +156,7 @@ const Header = () => {
               <div className="flex flex-col mt-10 space-y-5  font-medium tracking-wider ">
                 <Link
                   to="/profile"
-                  className="bg-white shadow-lg shadow-purple-700 border border-purple-500 text-gray-900 mx-4 py-1 rounded-md cursor-pointer"
+                  className="bg-white shadow-lg shadow-gray-900  border-purple-500 text-gray-900 mx-4 py-1 rounded-md cursor-pointer"
                 >
                   MY PROFILE
                 </Link>
@@ -165,7 +166,7 @@ const Header = () => {
                       setIsLogoutModalOpen(true);
                       setIsNavOpen(false);
                     }}
-                    className="bg-rose-500 space-x-2 shadow-xl shadow-pink-800 inline-flex mx-4 text-center  m-auto justify-center items-center text-white  py-1 rounded-md cursor-pointer"
+                    className="bg-gradient-to-r from-rose-600 to-rose-800 space-x-2 shadow-lg shadow-red-500 inline-flex mx-4 text-center  m-auto justify-center items-center text-white  py-1 rounded-md cursor-pointer"
                   >
                     <span>Logout</span>
                     <span>

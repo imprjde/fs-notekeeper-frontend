@@ -21,10 +21,6 @@ const CreateNote = () => {
   const { isLogoutModalOpen } = useContext(appContext);
 
   console.log("HJHJHJ,", BASE_URL);
-  const gradientStyle = {
-    background:
-      "linear-gradient(to top, rgb(56, 189, 248), rgb(186, 230, 253))",
-  };
 
   const submitNoteLoader = (
     <div
@@ -123,7 +119,7 @@ const CreateNote = () => {
                 type="text"
                 id="title"
                 name="title"
-                className="w-full h-10 p-2 border rounded"
+                className="w-full font-medium h-10 p-2 border rounded"
               />
             </div>
             <div>
@@ -141,7 +137,7 @@ const CreateNote = () => {
                 type="text"
                 id="category"
                 name="category"
-                className="w-full h-10 p-2 border rounded"
+                className="w-full font-medium h-10 p-2 border rounded"
               />
             </div>
             <div>
@@ -159,7 +155,7 @@ const CreateNote = () => {
                 id="content"
                 name="content"
                 rows="2"
-                className="w-full  p-2 border rounded"
+                className="w-full font-medium p-2 border rounded"
               ></textarea>
             </div>
 

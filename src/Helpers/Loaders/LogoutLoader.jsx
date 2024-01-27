@@ -8,7 +8,7 @@ export const LogoutLoader = () => {
       className="flex flex-col space-y-3 items-center space-x-2"
     >
       <svg
-        className="h-12 w-12 animate-spin stroke-gray-900"
+        className="h-12 w-12 animate-spin stroke-pink-500"
         viewBox="0 0 256 256"
       >
         <line
@@ -84,7 +84,7 @@ export const LogoutLoader = () => {
           strokeWidth={24}
         ></line>
       </svg>
-      <span className="text-2xl font-medium text-gray-800">Logging out...</span>
+      <span className="text-2xl font-bold text-gray-800">Logging out...</span>
     </div>
   );
 };

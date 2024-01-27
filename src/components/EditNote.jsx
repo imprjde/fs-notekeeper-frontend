@@ -23,11 +23,6 @@ const EditNote = () => {
 
   console.log(editedData);
 
-  const gradientStyle = {
-    background:
-      "linear-gradient(to top, rgb(56, 189, 248), rgb(186, 230, 253))",
-  };
-
   const updateNoteLoader = (
     <div
       className="inline-block h-5 w-5 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
@@ -117,20 +112,19 @@ const EditNote = () => {
           </motion.span>
         )}
       </AnimatePresence>
-      <div
-        className="min-h-screen h-full m-auto flex justify-center items-center pb-40 md:pb-10"
-        style={gradientStyle}
-      >
-        <div className="bg-white bg-opacity-50 w-[90%] md:w-[50%] rounded-lg p-4">
-          <div className="flex m-auto justify-start   ml-2 mb-3">
-            <span className="text-gray-800 py-1 shadow-lg px-4  rounded-md shadow-black font-medium text-2xl tracking-wide ">
+
+      <div className="min-h-screen h-full m-auto bg-gradient-to-b from-purple-700   to-black flex justify-center items-center pb-40 md:pb-10">
+        <ToastContainer />
+        <div className="bg-white bg-opacity-20 w-[90%] md:w-[50%] shadow-lg shadow-sky-600 rounded-lg p-4">
+          <div className="flex m-auto justify-start ml-2 mb-3">
+            <span className="text-white bg-gradient-to-r from-fuchsia-800 to-gray-800 py-1 shadow-lg px-4  rounded-md shadow-rose-600 font-medium text-2xl tracking-wide ">
               Edit your note
             </span>
           </div>
-          <div className="space-y-3">
+          <div className="space-y-3 pt-3">
             <div>
               <label
-                className=" flex ml-1 text-gray-900 font-medium tracking-wide my-0.5 text-left "
+                className=" flex ml-1 text-white font-medium tracking-wide my-0.5 text-left "
                 htmlFor="title"
               >
                 Title:
@@ -143,12 +137,12 @@ const EditNote = () => {
                 type="text"
                 id="title"
                 name="title"
-                className="w-full h-10 p-2 border rounded"
+                className="w-full font-medium h-10 p-2 border rounded"
               />
             </div>
             <div>
               <label
-                className=" flex ml-1 text-gray-900 font-medium tracking-wide my-0.5 text-left "
+                className=" flex ml-1 text-white font-medium tracking-wide my-0.5 text-left "
                 htmlFor="category"
               >
                 Category:
@@ -161,13 +155,12 @@ const EditNote = () => {
                 type="text"
                 id="category"
                 name="category"
-                className="w-full h-10 p-2 border rounded"
+                className="w-full font-medium h-10 p-2 border rounded"
               />
             </div>
-
             <div>
               <label
-                className=" flex ml-1 text-gray-900 font-medium tracking-wide my-0.5 text-left "
+                className=" flex ml-1 text-white font-medium tracking-wide my-0.5 text-left "
                 htmlFor="content"
               >
                 Description:
@@ -180,35 +173,23 @@ const EditNote = () => {
                 id="content"
                 name="content"
                 rows="2"
-                className="w-full  p-2 border rounded"
-              ></textarea>
+                className="w-full font-medium  p-2 border rounded"
+              />
             </div>
 
-            <div className="flex justify-end space-x-2">
+            <div className="flex justify-end space-x-3">
               <button
                 onClick={handleReset}
-                className="relative inline-flex items-center justify-center py-1 px-4 overflow-hidden font-medium text-white transition duration-300 ease-out border-2 border-gray-500 rounded-lg shadow-md group"
+                className="relative tracking-wider bg-gray-800  inline-flex items-center justify-center py-1 px-4 overflow-hidden font-medium text-white transition duration-300 ease-out border border-white rounded-[4px] shadow-md shadow-white group"
               >
-                <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 translate-x-full bg-gray-500 group-hover:translate-x-0 ease">
-                  Reset
-                </span>
-                <span className="absolute flex items-center justify-center w-full h-full text-black transition-all duration-300 transform group-hover:translate-x-full ease">
-                  Reset
-                </span>
-                <span className="relative invisible">Re set </span>
+                Reset
               </button>
 
               <button
                 onClick={handleSubmit}
-                className="relative inline-flex items-center justify-center py-1 px-4 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-purple-500 rounded-lg shadow-md group"
+                className="relative min-w-[125px] tracking-wider bg-gradient-to-r from-blue-600 to-blue-950  inline-flex items-center justify-center py-1 px-8 overflow-hidden font-medium text-white transition duration-300 ease-out border border-sky-400 rounded-[4px] shadow-md shadow-sky-400 group"
               >
-                <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-purple-500 group-hover:translate-x-0 ease">
-                  {isLoading ? updateNoteLoader : "Update"}
-                </span>
-                <span className="absolute flex items-center justify-center w-full h-full text-purple-500 transition-all duration-300 transform group-hover:translate-x-full ease">
-                  {isLoading ? updateNoteLoader : "Update"}
-                </span>
-                <span className="relative invisible">Update Note</span>
+                {isLoading ? updateNoteLoader : "Update"}
               </button>
             </div>
           </div>

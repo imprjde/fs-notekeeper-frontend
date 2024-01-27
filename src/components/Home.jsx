@@ -67,7 +67,7 @@ const Home = () => {
     if (!userInfo) {
       navigate("/login");
     }
-    // fetchNotes();
+    fetchNotes();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -102,7 +102,6 @@ const Home = () => {
   return (
     <>
       <Header />
-      {/* <div className="min-h-screen h-full pb-10 bg-gradient-to-b from-purple-600  to-black"> */}
       <div className="min-h-screen h-full pb-10 bg-gradient-to-b from-purple-700  to-black">
         {deleteModal && <DeleteNoteModal handleDelete={handleDelete} />}
         <AnimatePresence>
@@ -175,7 +174,7 @@ const Home = () => {
             />
           </span>
         </div>
-        <div class="m-auto justify-center mt-10 bg-white shadow-md shadow-white  pb-5 bg-opacity-10 rounded-lg w-[90%] md:w-[80%]">
+        <div class="m-auto justify-center mt-10 bg-white shadow-lg shadow-sky-500  pb-5 bg-opacity-10 rounded-lg w-[90%] md:w-[80%]">
           <div className="text-white m-auto pt-7 items-center px-5 flex justify-between">
             <span className="text-xl font-semibold tracking-wider">
               Your Notes
@@ -183,7 +182,7 @@ const Home = () => {
 
             <Link
               to="/createNote"
-              className="text-lg bg-gradient-to-br from-gray-950 to-gray-600 shadow-md shadow-cyan-400 hover:shadow-sky-300 inline-flex items-center px-3 py-0.5 rounded-[4px] cursor-pointer font-medium tracking-wide"
+              className="text-lg bg-gradient-to-br from-gray-950 to-gray-600 shadow-md shadow-white hover:shadow-sky-300 inline-flex items-center px-3 py-0.5 rounded-[4px] cursor-pointer font-medium tracking-wide"
             >
               Add Note{" "}
               <span className="ml-1 mt-[2px]">
@@ -257,11 +256,9 @@ const Home = () => {
                               </button>
                             </Link>
                             <button
-                              style={
-                                {
-                                  textShadow: "4px 4px 4px  rgb(0,0,0)",
-                                }
-                              }
+                              style={{
+                                textShadow: "4px 4px 4px  rgb(0,0,0)",
+                              }}
                               onClick={(e) => {
                                 e.stopPropagation();
                                 handleDeletePopUP(note._id);
