@@ -41,11 +41,6 @@ const Home = () => {
     setNotes(copy);
   };
 
-  // const gradientStyle = {
-  //   background:
-  //     "linear-gradient(to top, rgb(56, 189, 248), rgb(186, 230, 253))",
-  // };
-
   const fetchNotes = async () => {
     try {
       setIsloading(true);
@@ -198,9 +193,9 @@ const Home = () => {
           </div>
           {isLoading && (
             <div className="md:mt-10 mt-14  space-y-5">
-              <div class="flex gap-4 flex-wrap justify-center">
+              <div className="flex gap-4 flex-wrap justify-center">
                 <img
-                  class="md:w-14 md:h-14 w-12 h-12 animate-spin"
+                  className="md:w-14 md:h-14 w-12 h-12 animate-spin"
                   src="https://www.svgrepo.com/show/70469/loading.svg"
                   alt="Loading icon"
                 />
@@ -238,7 +233,7 @@ const Home = () => {
                       initial={{ opacity: 0, y: 200 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 1, delay: index * 0.1 }}
-                      className={`bg-white  cursor-pointer  rounded-md m-auto py-3 px-3 mt-7 w-[90%] h-auto flex flex-col transition-all ${
+                      className={`bg-white shadow-md shadow-gray-950 cursor-pointer  rounded-md m-auto py-3 px-3 mt-7 w-[90%] h-auto flex flex-col transition-all ${
                         note.isOpen ? "h-auto" : "h-12"
                       }`}
                     >
@@ -274,16 +269,19 @@ const Home = () => {
                         </div>
                         <Collapse
                           open={note?.isOpen}
-                          // open={true}
                           initialOpen={false}
-                          className="flex m-auto justify-center"
+                          style={{ justifyContent: "flex-start" }}
+                          className="flex  m-auto justify-center"
                         >
                           <Card className="border-0 bg-transparent shadow-none">
                             <CardBody className="p-0">
                               <Typography className="p-0 m-0">
-                                <div className="flex mt-2 bg-opacity-50 rounded-md py-2 flex-col m-auto w-full">
+                                <div
+                                  style={{ justifyContent: "flex-start" }}
+                                  className="flex mt-2 bg-opacity-50 rounded-md py-2 flex-col m-auto w-full"
+                                >
                                   <span className="text-left  text-gray-900 ml-1 text-sm font-medium tracking-wider py-1 rounded-md">
-                                    <span className="bg-cyan-500  px-2 py-0.5 rounded-md text-white">
+                                    <span className="bg-cyan-500  px-2 py-0.5 rounded-[3px] text-white">
                                       {" "}
                                       Category:{" "}
                                       {note?.category.charAt(0).toUpperCase() +
@@ -309,5 +307,3 @@ const Home = () => {
   );
 };
 export default Home;
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
