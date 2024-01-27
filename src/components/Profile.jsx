@@ -143,7 +143,7 @@ const Profile = () => {
       </AnimatePresence>
       <div className="min-h-screen h-full bg-gradient-to-b from-purple-700  to-black  m-auto flex justify-center items-center pb-10">
         <ToastContainer />
-        <div className="bg-white shadow-lg shadow-orange-600 bg-opacity-70 w-[90%] md:w-[30%] rounded-md px-5 py-5">
+        <div className="bg-white -mt-28 md:mt-0 shadow-lg shadow-orange-600 bg-opacity-70 w-[90%] md:w-[30%] rounded-md px-5 py-5">
           {!picEditState ? (
             <div>
               <div className="m-auto flex justify-center group relative">
@@ -175,16 +175,6 @@ const Profile = () => {
                 </label>
               </div>
 
-              {/* <button
-                onClick={() => {
-                  document.getElementById("avatarInput").click();
-                }}
-                className={`text-sm w-[128px] ${
-                  isPicLoading ? "bg-teal-400" : "bg-gray-800"
-                } mt-2 text-white font-normal px-3 py-0.5 rounded-[4px] tracking-wide`}
-              >
-                {isPicLoading ? "Loading..." : " Change Picture"}
-              </button> */}
               <div
                 onClick={() => {
                   document.getElementById("avatarInput").click();
