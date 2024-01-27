@@ -141,11 +141,9 @@ const Profile = () => {
           </motion.span>
         )}
       </AnimatePresence>
-      <div
-        className="min-h-screen h-full bg-gradient-to-b from-purple-700  to-black  m-auto flex justify-center items-center pb-10"
-      >
+      <div className="min-h-screen h-full bg-gradient-to-b from-purple-700  to-black  m-auto flex justify-center items-center pb-10">
         <ToastContainer />
-        <div className="bg-white bg-opacity-70 w-[90%] md:w-[30%] rounded-md px-5 py-5">
+        <div className="bg-white shadow-lg shadow-orange-600 bg-opacity-70 w-[90%] md:w-[30%] rounded-md px-5 py-5">
           {!picEditState ? (
             <div>
               <div className="m-auto flex justify-center group relative">
@@ -176,25 +174,28 @@ const Profile = () => {
                   />
                 </label>
               </div>
-              {/* <button
-                className="bg-blue-500 px-3 mt-2 rounded-md py-0.5 text-white font-medium"
-                onClick={() => {
-                  document.getElementById("avatarInput").click();
-                }}
-              >
-                {isPicLoading ? "Loading Picture" : "Change Picture"}
-              </button> */}
 
-              <button
+              {/* <button
                 onClick={() => {
                   document.getElementById("avatarInput").click();
                 }}
                 className={`text-sm w-[128px] ${
-                  isPicLoading ? "bg-teal-400" : "bg-teal-500"
-                } mt-2 text-white font-medium px-3 py-0.5 rounded-md tracking-wide`}
+                  isPicLoading ? "bg-teal-400" : "bg-gray-800"
+                } mt-2 text-white font-normal px-3 py-0.5 rounded-[4px] tracking-wide`}
               >
                 {isPicLoading ? "Loading..." : " Change Picture"}
-              </button>
+              </button> */}
+              <div
+                onClick={() => {
+                  document.getElementById("avatarInput").click();
+                }}
+                className="relative flex flex-col m-auto mt-2  items-center"
+              >
+                <button className="bg-gradient-to-r  -inset-5  from-sky-600  to-rose-600 blur-lg shadow-md shadow-pink-500  h-7 w-[145px] rounded-[4px]"></button>
+                <button className=" absolute tracking-wider text-white  font-medium  bg-gradient-to-r  from-pink-600 to-pink-950 h-7 w-[145px] rounded-[4px]">
+                  {isPicLoading ? "Loading..." : " Change Picture"}
+                </button>
+              </div>
             </div>
           )}
 
@@ -212,7 +213,7 @@ const Profile = () => {
               </div>
             </div>
           ) : (
-            <div className="bg-white bg-opacity-60 px-10 space-y-5 py-5 mt-3">
+            <div className="bg-white bg-opacity-60 px-10 space-y-5 py-6 mt-3">
               <div>
                 <input
                   onChange={(e) =>
@@ -249,16 +250,17 @@ const Profile = () => {
                     inputRef.current.focus();
                   }, 10);
                 }}
-                className="inline-block px-3 py-1 text-sm bg-orange-500 bg-opacity-90 font-medium text-white border-2 border-white rounded-md  "
+                className="inline-block px-3 py-1 text-sm bg-orange-500 bg-opacity-90 font-medium text-white  rounded-[4px] shadow-lg shadow-amber-900 mt-1  "
               >
                 Edit Profile
               </button>
             </div>
           ) : (
-            <div className="m-auto w-full flex  justify-between space-x-3  mt-2 pr-2">
+            <div className="m-auto w-full flex justify-between space-x-3  mt-2 pr-2">
               <Link
                 to={`/${userInfo?.id}/reset`}
-                className="font-medium ml-1 text-sm md:text-base text-fuchsia-600 inline-flex items-center "
+                style={{ textShadow: "4px 4px 4px  rgb(255,255,255)" }}
+                className="font-semibold ml-1 text-sm md:text-base text-gray-900 inline-flex items-center tracking-wider "
               >
                 Change Password{" "}
                 <span className="ml-1">
@@ -270,7 +272,7 @@ const Profile = () => {
                 <button
                   disabled={isPicLoading || isLoading}
                   onClick={handleSubmit}
-                  className="inline-block w-[80px] bg-orange-500 bg-opacity-90 text-white font-semibold tracking-wider text-sm px-3 py-1.5 border-2 border-white rounded-md   "
+                  className="inline-block w-[90px] bg-orange-500 bg-opacity-90 text-white font-semibold tracking-wider text-sm px-3 py-[4px] rounded-[4px] shadow-lg shadow-amber-900 "
                 >
                   {isLoading ? updateProfileLoader : "Save"}
                 </button>

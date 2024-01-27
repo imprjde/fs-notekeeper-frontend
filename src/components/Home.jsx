@@ -67,7 +67,7 @@ const Home = () => {
     if (!userInfo) {
       navigate("/login");
     }
-    fetchNotes();
+    // fetchNotes();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -257,11 +257,16 @@ const Home = () => {
                               </button>
                             </Link>
                             <button
+                              style={
+                                {
+                                  textShadow: "4px 4px 4px  rgb(0,0,0)",
+                                }
+                              }
                               onClick={(e) => {
                                 e.stopPropagation();
                                 handleDeletePopUP(note._id);
                               }}
-                              className="text-rose-500"
+                              className="text-rose-500 "
                             >
                               <AiFillDelete size={20} />
                             </button>
