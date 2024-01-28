@@ -15,11 +15,6 @@ const ResetPassword = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const navigate = useNavigate();
 
-  const gradientStyle = {
-    background:
-      "linear-gradient(90deg, rgba(2,0,36,1) 23%, rgba(9,9,121,1) 48%, rgba(0,212,255,1) 100%)",
-  };
-
   console.log(isLoading);
 
   useEffect(() => {
@@ -70,10 +65,7 @@ const ResetPassword = () => {
     }
   };
   return (
-    <div
-      className="min-h-screen h-screen  m-auto flex flex-col justify-center items-center pb-10"
-      style={gradientStyle}
-    >
+    <div className="min-h-screen h-screen bg-gradient-to-b from-purple-700  to-black m-auto flex flex-col justify-center items-center pb-10">
       <ToastContainer />
       {errorMessage && (
         <div className="absolute top-64 md:top-24  m-auto w-[90%] md:w-[31%] left-0 right-0 text-red-500 p-2 text-center">

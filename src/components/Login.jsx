@@ -14,15 +14,6 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
-  // const gradientStyle = {
-  //   background: "linear-gradient(rgb(56, 189, 248), rgb(186, 230, 253))",
-  //   height: "100vh",
-  //   display: "flex",
-  //   justifyContent: "center",
-  //   alignItems: "center",
-  //   color: "white",
-  // };
-
   const LoginLoader = (
     <div className="flex space-x-1 m-auto items-center ">
       <div className="h-3 w-3 my-1.5 bg-white rounded-full animate-bounce [animation-delay:-0.3s]"></div>
@@ -120,9 +111,12 @@ const Login = () => {
                   Password
                 </label>
                 <div className="text-sm cursor-pointer">
-                  <span className="font-semibold text-gray-800 hover:text-gray-900">
-                    {/* Forgot password? */}
-                  </span>
+                  <Link
+                    to="/forgotPassword"
+                    className="font-semibold text-gray-800 hover:text-gray-900"
+                  >
+                    Forgot password?
+                  </Link>
                 </div>
               </div>
               <div className="mt-2 relative rounded-md shadow-sm">
