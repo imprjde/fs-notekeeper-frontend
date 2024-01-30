@@ -24,7 +24,7 @@ const LogoutModal = () => {
     >
       {!spinner && (
         <div className="relative p-4 w-full max-w-md max-h-full">
-          <div className="relative bg-white rounded-lg shadow">
+          <div className="relative bg-white shadow-lg shadow-purple-600 rounded-lg ">
             <button
               onClick={() => setIsLogoutModalOpen(false)}
               type="button"
@@ -50,13 +50,14 @@ const LogoutModal = () => {
             </button>
             <div className="p-4 md:p-5 text-center">
               <svg
-                className="mx-auto mb-4 text-gray-400 w-12 h-12 "
+                className="mx-auto mb-4 text-rose-500 w-12 h-12 "
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 20 20"
               >
                 <path
+                  
                   stroke="currentColor"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -64,14 +65,14 @@ const LogoutModal = () => {
                   d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
                 />
               </svg>
-              <h3 className="mb-5 text-lg font-normal text-gray-500 ">
+              <h3 className="mb-5 text-lg font-normal text-gray-600 ">
                 Are you sure you want to logout?
               </h3>
               <button
                 onClick={() => setIsLogoutModalOpen(false)}
                 data-modal-hide="popup-modal"
                 type="button"
-                className="text-gray-500 bg-white hover:bg-gray-100 mr-3 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 "
+                className="text-gray-500 bg-white shadow-md shadow-rose-500 hover:bg-gray-100 mr-3 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 "
               >
                 Cancel
               </button>
@@ -79,7 +80,7 @@ const LogoutModal = () => {
                 onClick={handleLogout}
                 data-modal-hide="popup-modal"
                 type="button"
-                className="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300  font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center "
+                className="text-white bg-rose-600 shadow-md shadow-gray-900 hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-red-300  font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center "
               >
                 Logout
               </button>

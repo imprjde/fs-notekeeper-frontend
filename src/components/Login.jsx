@@ -32,6 +32,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
+      setShowPassword(false);
       setIsLoading(true);
       let { data } = await axios.post(`${BASE_URL}/api/users/login`, loginData);
 
@@ -106,7 +107,7 @@ const Login = () => {
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="password"
-                  className="block tracking-wide text-sm font-medium leading-6 text-white text-left ml-1"
+                  className="block tracking-wide text-sm font-semibold leading-6 text-white text-left ml-1"
                 >
                   Password
                 </label>
@@ -130,7 +131,7 @@ const Login = () => {
                   type={showPassword ? "text" : "password"}
                   autoComplete="current-password"
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 pr-10"
+                  className="block w-full rounded-md font-semibold border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
                 <div className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5">
                   <button

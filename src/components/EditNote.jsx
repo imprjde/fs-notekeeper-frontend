@@ -8,6 +8,7 @@ import { ToastContainer } from "react-toastify";
 import axios from "axios";
 import Header from "./Header";
 import {
+  createNoteValidationError,
   noteUpdateErrorNotify,
   noteUpdateSuccessNotify,
 } from "../Helpers/Popups/popups";
@@ -56,39 +57,44 @@ const EditNote = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      setIsLoading(true);
-      let userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
-      if (!editedData.title || !editedData.category || !editedData.category) {
+
+    if (!editedData.title || !editedData.category || !editedData.category) {
+      setIsLoading(false);
+      createNoteValidationError();
+      return;
+    }else{
+      try {
+        setIsLoading(true);
+        let userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  
+       
+  
+        const config = {
+          headers: {
+            Authorization: `Bearer ${userInfo.token}`,
+          },
+        };
+  
+        const response = await axios.put(
+          `${BASE_URL}/api/notes/${id}`,
+          editedData,
+          config
+        );
+  
+        noteUpdateSuccessNotify();
         setIsLoading(false);
-        console.error("All fields must be filled.");
-        return;
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
+        console.log(response);
+      } catch (error) {
+        setIsLoading(false);
+        noteUpdateErrorNotify();
+        console.error("An error occurred:", error);
       }
-
-      const config = {
-        headers: {
-          Authorization: `Bearer ${userInfo.token}`,
-        },
-      };
-
-      const response = await axios.put(
-        `${BASE_URL}/api/notes/${id}`,
-        editedData,
-        config
-      );
-
-      noteUpdateSuccessNotify();
-      setIsLoading(false);
-      setTimeout(() => {
-        navigate("/");
-      }, 2000);
-      console.log(response);
-    } catch (error) {
-      setIsLoading(false);
-      noteUpdateErrorNotify();
-      console.error("An error occurred:", error);
     }
+   
   };
 
   const handleReset = () => {

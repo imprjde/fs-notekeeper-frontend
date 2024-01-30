@@ -6,6 +6,7 @@ import {
   picTypeErrorNotify,
   profileUpdateErrorNotify,
   profileUpdateSuccessNotify,
+  profileUpdateValidationError,
   somethingWentWrongNotify,
 } from "../Helpers/Popups/popups";
 import { ToastContainer } from "react-toastify";
@@ -23,7 +24,7 @@ const Profile = () => {
   const [isPicLoading, setIsPicLoading] = useState(false);
   const { isLogoutModalOpen } = useContext(appContext);
 
-  console.log("USERINFO DA->", userInfo);
+  // console.log("USERINFO DA->", userInfo);
   const inputRef = useRef();
 
   const updateProfileLoader = (
@@ -54,6 +55,7 @@ const Profile = () => {
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     return emailRegex.test(email);
   };
 
@@ -85,10 +87,10 @@ const Profile = () => {
   };
 
   const handleSubmit = async () => {
-    if (userInfo.email.length === 0) {
-      console.log("Email Cannot be Empty");
+    if (userInfo.name.length === 0) {
+      console.log("N Cannot be Empty");
+      profileUpdateValidationError("Name cannot be empty");
 
-      //Show a toastify Pop up
       return;
     }
     if (validateEmail(userInfo?.email)) {
@@ -120,8 +122,7 @@ const Profile = () => {
       }
     } else {
       console.log("Invalid Email Format");
-
-      //Show Pop up or error message
+      profileUpdateValidationError("Invalid email format");
     }
   };
   return (
@@ -181,8 +182,14 @@ const Profile = () => {
                 }}
                 className="relative flex flex-col m-auto mt-2  items-center"
               >
-                <button className="bg-gradient-to-r  -inset-5  from-sky-600  to-rose-600 blur-lg shadow-md shadow-pink-500  h-7 w-[145px] rounded-[4px]"></button>
-                <button className=" absolute tracking-wider text-white  font-medium  bg-gradient-to-r  from-pink-600 to-pink-950 h-7 w-[145px] rounded-[4px]">
+                <button
+                  disabled={isPicLoading}
+                  className="bg-gradient-to-r  -inset-5  from-sky-600  to-rose-600 blur-lg shadow-md shadow-pink-500  h-7 w-[145px] rounded-[4px]"
+                ></button>
+                <button
+                  disabled={isPicLoading}
+                  className=" absolute tracking-wider text-white  font-medium  bg-gradient-to-r  from-pink-600 to-pink-950 h-7 w-[145px] rounded-[4px]"
+                >
                   {isPicLoading ? "Loading..." : " Change Picture"}
                 </button>
               </div>
