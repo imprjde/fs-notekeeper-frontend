@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { appContext } from "../../context";
 
 const DeleteNoteModal = ({ handleDelete }) => {
-  const { deleteModal, setDeleteModal } = useContext(appContext);
+  const { setDeleteModal } = useContext(appContext);
   return (
     <>
       <div
@@ -10,12 +10,12 @@ const DeleteNoteModal = ({ handleDelete }) => {
         id="modal-id"
       >
         <div className="absolute bg-black opacity-80 inset-0 z-0" />
-        <div className="w-[80%]  max-w-lg p-5 relative mx-auto my-auto rounded-xl shadow-lg  bg-white ">
+        <div className="w-[80%]  max-w-lg p-5 relative mx-auto my-auto rounded-xl bg-white shadow-lg shadow-sky-500 ">
           <div className="">
             <div className="text-center p-5 flex-auto justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-12 h-12 flex items-center text-red-500 mx-auto"
+                className="w-12 h-12 flex items-center text-rose-500 mx-auto"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -32,7 +32,7 @@ const DeleteNoteModal = ({ handleDelete }) => {
             <div className="p- text-center space-x-4 md:block">
               <button
                 onClick={() => setDeleteModal(false)}
-                className="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-lg hover:shadow-lg hover:bg-gray-100"
+                className="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-md shadow-rose-500 font-medium tracking-wider border text-gray-600 rounded-lg hover:shadow-sm hover:shadow-rose-500"
               >
                 Cancel
               </button>
@@ -41,7 +41,7 @@ const DeleteNoteModal = ({ handleDelete }) => {
                   handleDelete();
                   setDeleteModal(false);
                 }}
-                className="mb-2 md:mb-0 bg-red-500 border border-red-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-lg hover:shadow-lg hover:bg-red-600"
+                className="mb-2 md:mb-0 bg-rose-500 shadow-md shadow-gray-900 border border-rose-500 px-5 py-2 text-sm  font-medium tracking-wider text-white rounded-lg hover:shadow-sm hover:shadow-gray-900 hover:bg-rose-600"
               >
                 Delete
               </button>

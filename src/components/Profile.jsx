@@ -111,13 +111,13 @@ const Profile = () => {
         if (response) {
           localStorage.setItem("userInfo", JSON.stringify(response.data));
           setIsLoading(false);
-          console.log(response);
           setEditState(false);
+          setPicEditState(false);
           profileUpdateSuccessNotify();
         }
       } catch (error) {
         setIsLoading(false);
-        console.log(error);
+        setPicEditState(false);
         profileUpdateErrorNotify();
       }
     } else {

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
 import { TbLogout } from "react-icons/tb";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { appContext } from "../context";
 import { motion, AnimatePresence } from "framer-motion";
@@ -16,11 +16,25 @@ const Header = () => {
     searchBarOpen,
     searchQuery,
     setSearchQuery,
+    isSearching,
+    setIsSearching,
   } = useContext(appContext);
+
+  const location = useLocation();
+  const currentPath = location.pathname;
+  console.log("Current Route Path:", currentPath);
 
   const handleToggleNav = () => {
     setIsNavOpen(!isNavOpen);
     setSearchBarOpen(false);
+  };
+
+  const handleSearch = (e) => {
+    setIsSearching(true);
+    setSearchQuery(e.target.value);
+    setTimeout(() => {
+      setIsSearching(false);
+    }, 2000);
   };
 
   useEffect(() => {
@@ -47,22 +61,24 @@ const Header = () => {
             NOTE
           </span>
         </Link>
-        <form className=" items-center hidden md:flex -space-x-2 mr-[30px] md:m-auto ">
-          <input
-            onChange={(e) => setSearchQuery(e.target.value)}
-            value={searchQuery}
-            type="text"
-            placeholder="Search Notes..."
-            className="block w-[160px]  md:w-[300px]  rounded-md focus:outline-none focus:ring-0  font-semibold border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400   sm:text-sm sm:leading-6"
-          />
+        {currentPath === "/" && (
+          <form className=" items-center hidden md:flex -space-x-2 mr-[30px] md:m-auto ">
+            <input
+              onChange={(e) => handleSearch(e)}
+              value={searchQuery}
+              type="text"
+              placeholder="Search Notes..."
+              className="block w-[160px]  md:w-[300px]  rounded-md focus:outline-none focus:ring-0  font-semibold border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400   sm:text-sm sm:leading-6"
+            />
 
-          <button className="bg-white border border-gray-400  md:hidden py-[7px] text-purple-800  px-5  rounded-r-md">
-            <FaSearch size={22} />
-          </button>
-          <button className="bg-white border  hidden md:flex py-[6px] text-purple-800 px-5  rounded-r-md ">
-            <FaSearch size={22} />
-          </button>
-        </form>
+            <button className="bg-white border border-gray-400  md:hidden py-[7px] text-purple-800  px-5  rounded-r-md">
+              <FaSearch size={22} />
+            </button>
+            <button className="bg-white border  hidden md:flex py-[6px] text-purple-800 px-5  rounded-r-md ">
+              <FaSearch size={22} />
+            </button>
+          </form>
+        )}
 
         {userInfo !== null ? (
           <span className="space-x-3 hidden md:flex items-center mr-5">
@@ -110,12 +126,14 @@ const Header = () => {
         )}
 
         <div className="flex m-auto h-full items-center md:hidden space-x-8 mr-3">
-          <span
-            onClick={() => setSearchBarOpen(!searchBarOpen)}
-            className="text-gray-100 cursor-pointer"
-          >
-            <FaSearch size={22} />
-          </span>
+          {currentPath === "/" && (
+            <span
+              onClick={() => setSearchBarOpen(!searchBarOpen)}
+              className="text-gray-100 cursor-pointer"
+            >
+              <FaSearch size={22} />
+            </span>
+          )}
           <span
             onClick={handleToggleNav}
             className="bg-gradient-to-b from-fuchsia-500 to-fuchsia-900 px-2 py-1 md:hidden text-white rounded-md cursor-pointer"
@@ -125,7 +143,6 @@ const Header = () => {
         </div>
         <AnimatePresence>
           {isNavOpen && (
-           
             <motion.div
               initial={{ opacity: 0, x: 200 }}
               animate={{ opacity: 1, x: 0 }}

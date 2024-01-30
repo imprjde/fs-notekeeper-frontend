@@ -84,9 +84,8 @@ export const passwordChangeSuccessNotify = () => {
     autoClose: 2000,
     hideProgressBar: true,
     icon: false,
+    theme: "dark",
     style: {
-      background:
-        "linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(9,9,121,1) 52%, rgba(2,0,36,1) 100%)",
       color: "#fff",
       fontWeight: 300,
       letterSpacing: "2px",
@@ -200,11 +199,12 @@ export const notifyEmailSent = () => {
 };
 
 export const emailSentError = () => {
-  toast.error("Failed to send email. Please try again later.", {
+  toast.error("No user found with this email.", {
     position: "top-center",
     autoClose: 5000,
     hideProgressBar: true,
     pauseOnHover: false,
+
     theme: "dark",
   });
 };
@@ -224,6 +224,48 @@ export const profileUpdateValidationError = (message) => {
     style: {
       background:
         "linear-gradient(113deg, rgba(238,60,6,1) 30%, rgba(173,3,3,1) 70%)",
+      color: "white",
+      letterSpacing: "1px",
+    },
+  });
+};
+
+export const noteDeleteNotify = () => {
+  const icon = (
+    <span className="text-white rounded-full">
+      <MdError size={22} />
+    </span>
+  );
+  toast.info("Note Deleted", {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: true,
+    pauseOnHover: false,
+    icon,
+    style: {
+      background:
+        "linear-gradient(113deg, rgba(24,135,127,1) 31%, rgba(15,235,121,1) 100%)",
+      color: "white",
+      letterSpacing: "1px",
+    },
+  });
+};
+
+export const errorPopUP = (message) => {
+  const icon = (
+    <span className="text-white rounded-full">
+      <MdError size={22} />
+    </span>
+  );
+  toast.error(`${message}`, {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: true,
+    pauseOnHover: false,
+    icon,
+    style: {
+      background:
+        "linear-gradient(113deg, rgba(238,6,6,1) 31%, rgba(173,3,3,1) 60%)",
       color: "white",
       letterSpacing: "1px",
     },
