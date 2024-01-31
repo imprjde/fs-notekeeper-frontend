@@ -162,11 +162,11 @@ const Profile = () => {
                 className="relative flex flex-col m-auto mt-2  items-center"
               >
                 <button
-                  disabled={isPicLoading}
+                  disabled={isPicLoading || isLoading}
                   className="bg-gradient-to-r  -inset-5  from-sky-600  to-rose-600 blur-lg shadow-md shadow-pink-500  h-7 w-[145px] rounded-[4px]"
                 ></button>
                 <button
-                  disabled={isPicLoading}
+                  disabled={isPicLoading || isLoading}
                   className=" absolute tracking-wider text-white  font-medium  bg-gradient-to-r  from-pink-600 to-pink-950 h-7 w-[145px] rounded-[4px]"
                 >
                   {isPicLoading ? "Loading..." : " Change Picture"}
@@ -204,7 +204,7 @@ const Profile = () => {
               <div>
                 <input
                   onChange={(e) =>
-                    setUserInfo({ ...userInfo, email: e.target.value })
+                    setUserInfo({ ...userInfo, email: e.target.value.trim() })
                   }
                   value={userInfo?.email}
                   placeholder="Email"

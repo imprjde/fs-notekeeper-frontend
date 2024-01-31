@@ -9,7 +9,10 @@ import { FaCopyright } from "react-icons/fa";
 import { LoginLoader } from "../Helpers/Loaders/Loaders";
 
 const Login = () => {
-  const [loginData, setLoginData] = useState({});
+  const [loginData, setLoginData] = useState({
+    email: "",
+    password: "",
+  });
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -82,6 +85,7 @@ const Login = () => {
               </label>
               <div className="mt-2">
                 <input
+                  value={loginData.email}
                   onFocus={() => setErrorMessage("")}
                   onChange={(e) =>
                     setLoginData({ ...loginData, email: e.target.value })
@@ -115,6 +119,7 @@ const Login = () => {
               </div>
               <div className="mt-2 relative rounded-md shadow-sm">
                 <input
+                  value={loginData.password}
                   onFocus={() => setErrorMessage("")}
                   onChange={(e) =>
                     setLoginData({ ...loginData, password: e.target.value })
@@ -126,19 +131,21 @@ const Login = () => {
                   required
                   className="block w-full rounded-md font-semibold border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
-                <div className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5">
-                  <button
-                    onClick={() => setShowPassword(!showPassword)}
-                    type="button"
-                    className="text-gray-700 "
-                  >
-                    {showPassword ? (
-                      <FaEye size={18} />
-                    ) : (
-                      <FaEyeSlash size={18} />
-                    )}
-                  </button>
-                </div>
+                {loginData.password && (
+                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5">
+                    <button
+                      onClick={() => setShowPassword(!showPassword)}
+                      type="button"
+                      className="text-gray-700 "
+                    >
+                      {showPassword ? (
+                        <FaEye size={18} />
+                      ) : (
+                        <FaEyeSlash size={18} />
+                      )}
+                    </button>
+                  </div>
+                )}
               </div>
               {errorMessage && (
                 <div className="m-auto flex ml-1">

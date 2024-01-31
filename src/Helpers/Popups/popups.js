@@ -28,8 +28,8 @@ export const signupSuccessNotify = () => {
   });
 };
 
-export const signupErrorNotify = () => {
-  toast.error(`Signup Failed! Try again later`, {
+export const signupErrorNotify = (message) => {
+  toast.error(`${message}`, {
     position: "top-center",
     pauseOnHover: false,
     autoClose: 4000,

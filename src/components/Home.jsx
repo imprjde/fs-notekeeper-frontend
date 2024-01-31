@@ -17,6 +17,7 @@ import Header from "./Header";
 import DeleteNoteModal from "../Helpers/Modals/DeleteNoteModal";
 import { BASE_URL } from "../Helpers/constant";
 import { errorPopUP, noteDeleteNotify } from "../Helpers/Popups/popups";
+import { convertTimestamp } from "../Helpers/dateConverter";
 
 const Home = () => {
   const [notes, setNotes] = useState([]);
@@ -99,7 +100,6 @@ const Home = () => {
     } catch (error) {
       setIsDeleting(false);
       errorPopUP("Failed to delete note.");
-      console.error("Error deleting note:", error);
     }
   };
 
@@ -187,7 +187,7 @@ const Home = () => {
             />
           </span>
         </div>
-        <div class="m-auto justify-center mt-10 bg-white shadow-lg shadow-sky-500  pb-5 bg-opacity-10 rounded-lg w-[90%] md:w-[80%]">
+        <div className="m-auto justify-center mt-10 bg-white shadow-lg shadow-sky-500  pb-5 bg-opacity-10 rounded-lg w-[90%] md:w-[80%]">
           <div className="text-white m-auto pt-7 items-center px-5 flex justify-between">
             <span className="text-xl font-semibold tracking-wider">
               Your Notes
@@ -300,6 +300,7 @@ const Home = () => {
                                 <FaEdit size={20} />
                               </button>
                             </Link>
+
                             <button
                               style={{
                                 textShadow: "4px 4px 4px  rgb(0,0,0)",
@@ -318,7 +319,7 @@ const Home = () => {
                           open={note?.isOpen}
                           initialOpen={false}
                           style={{ justifyContent: "flex-start" }}
-                          className="flex  m-auto justify-center"
+                          className="flex flex-col  m-auto justify-center"
                         >
                           <Card className="border-0 bg-transparent shadow-none">
                             <CardBody className="p-0">
@@ -342,6 +343,25 @@ const Home = () => {
                               </Typography>
                             </CardBody>
                           </Card>
+
+                          <div
+                            id="dates"
+                            className="flex flex-col mt-1 text-left pl-2  "
+                          >
+                            <div>
+                              <span className="text-sm text-gray-900 font-semibold">
+                                Created on: {convertTimestamp(note.createdAt)}
+                              </span>
+                            </div>
+                            {convertTimestamp(note.createdAt) !==
+                              convertTimestamp(note.updatedAt) && (
+                              <div>
+                                <span className="text-sm text-gray-900 font-semibold">
+                                  Updated on: {convertTimestamp(note.updatedAt)}
+                                </span>
+                              </div>
+                            )}
+                          </div>
                         </Collapse>
                       </div>
                     </motion.div>
