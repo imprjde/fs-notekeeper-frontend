@@ -16,13 +16,11 @@ const Header = () => {
     searchBarOpen,
     searchQuery,
     setSearchQuery,
-    isSearching,
     setIsSearching,
   } = useContext(appContext);
 
   const location = useLocation();
   const currentPath = location.pathname;
-  console.log("Current Route Path:", currentPath);
 
   const handleToggleNav = () => {
     setIsNavOpen(!isNavOpen);

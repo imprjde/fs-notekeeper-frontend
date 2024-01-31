@@ -8,6 +8,7 @@ import {
 } from "../Helpers/Popups/popups";
 import { BASE_URL } from "../Helpers/constant";
 import { FaCopyright } from "react-icons/fa";
+import { signupLoader } from "../Helpers/Loaders/Loaders";
 
 const Signup = () => {
   const [signupData, setSignupData] = useState({});
@@ -17,23 +18,6 @@ const Signup = () => {
   const [pic, setPic] = useState("");
   const [formError, setFormError] = useState(null);
   const navigate = useNavigate();
-
-  // const gradientStyle = {
-  //   background: "linear-gradient(rgb(56, 189, 248), rgb(186, 230, 253))",
-  //   height: "100%",
-  //   display: "flex",
-  //   justifyContent: "center",
-  //   alignItems: "center",
-  //   color: "white",
-  // };
-
-  const signupLoader = (
-    <div className="flex space-x-1 m-auto items-center ">
-      <div className="h-3 w-3 my-1.5 bg-white rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-      <div className="h-3 w-3 my-1.5 bg-white rounded-full animate-bounce [animation-delay:-0.23s]"></div>
-      <div className="h-3 w-3 my-1.5 bg-white rounded-full animate-bounce"></div>
-    </div>
-  );
 
   const postDetails = (pics) => {
     console.log(pics);

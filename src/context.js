@@ -8,7 +8,6 @@ const Context = ({ children }) => {
   const [deleteModal, setDeleteModal] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [editableData, setEditableData] = useState(null);
 
   const contextValue = {
     isLogoutModalOpen,
@@ -21,8 +20,6 @@ const Context = ({ children }) => {
     setIsSearching,
     deleteModal,
     setDeleteModal,
-    editableData,
-    setEditableData,
   };
   return (
     <appContext.Provider value={contextValue}>{children}</appContext.Provider>

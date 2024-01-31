@@ -3,8 +3,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import Markdown from "react-markdown";
-// import remarkGfm from "remark-gfm";
 import {
   createNoteValidationError,
   noteCreatedNotify,
@@ -14,6 +12,7 @@ import LogoutModal from "../Helpers/Modals/LogoutModal";
 import { motion, AnimatePresence } from "framer-motion";
 import { appContext } from "../context";
 import { BASE_URL } from "../Helpers/constant";
+import { submitNoteLoader } from "../Helpers/Loaders/Loaders";
 const CreateNote = () => {
   const [formData, setFormData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -21,17 +20,6 @@ const CreateNote = () => {
   const { isLogoutModalOpen } = useContext(appContext);
 
   console.log("HJHJHJ,", BASE_URL);
-
-  const submitNoteLoader = (
-    <div
-      className="inline-block h-5 w-5 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-      role="status"
-    >
-      <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-        Loading...
-      </span>
-    </div>
-  );
 
   const handleSubmit = async (e) => {
     e.preventDefault();

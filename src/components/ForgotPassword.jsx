@@ -3,17 +3,11 @@ import axios from "axios";
 import { BASE_URL } from "../Helpers/constant";
 import { emailSentError, notifyEmailSent } from "../Helpers/Popups/popups";
 import { ToastContainer } from "react-toastify";
+import { emailResetLoader } from "../Helpers/Loaders/Loaders";
 
 const ForgotPassword = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState("");
-  const emailResetLoader = (
-    <div className="flex space-x-1 m-auto items-center ">
-      <div className="h-3 w-3 my-1.5 bg-white rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-      <div className="h-3 w-3 my-1.5 bg-white rounded-full animate-bounce [animation-delay:-0.23s]"></div>
-      <div className="h-3 w-3 my-1.5 bg-white rounded-full animate-bounce"></div>
-    </div>
-  );
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -171,11 +171,23 @@ export const loginErrorNotify = () => {
 };
 
 export const noteUpdateSuccessNotify = () => {
-  toast.success("Note updated !", {
+  const icon = (
+    <span className="text-white rounded-full">
+      <FaCheckCircle size={22} />
+    </span>
+  );
+  toast.success("Note updated successfully!", {
     position: "top-center",
     autoClose: 2000,
     hideProgressBar: true,
     pauseOnHover: false,
+    icon,
+    style: {
+      background:
+        "linear-gradient(113deg, rgba(24,135,127,1) 31%, rgba(15,235,121,1) 100%)",
+      color: "white",
+      letterSpacing: "1px",
+    },
   });
 };
 

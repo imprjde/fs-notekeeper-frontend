@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { loginErrorNotify, loginNotify } from "../Helpers/Popups/popups";
 import { BASE_URL } from "../Helpers/constant";
 import { FaCopyright } from "react-icons/fa";
+import { LoginLoader } from "../Helpers/Loaders/Loaders";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({});
@@ -13,14 +14,6 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
-
-  const LoginLoader = (
-    <div className="flex space-x-1 m-auto items-center ">
-      <div className="h-3 w-3 my-1.5 bg-white rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-      <div className="h-3 w-3 my-1.5 bg-white rounded-full animate-bounce [animation-delay:-0.23s]"></div>
-      <div className="h-3 w-3 my-1.5 bg-white rounded-full animate-bounce"></div>
-    </div>
-  );
 
   useEffect(() => {
     const userInfo = localStorage.getItem("userInfo");
@@ -32,6 +25,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
+      setErrorMessage("");
       setShowPassword(false);
       setIsLoading(true);
       let { data } = await axios.post(`${BASE_URL}/api/users/login`, loginData);
@@ -55,7 +49,6 @@ const Login = () => {
 
   return (
     <div className="bg-gradient-to-b from-gray-900   to-purple-700   h-screen flex flex-col items-center  justify-center">
-      {/* <ToastContainer /> */}
       <div className="w-[90%]  px-5 md:w-[60%]  rounded-md  text-white pb-5  bg-gradient-to-t from-gray-900   to-purple-700 shadow-xl shadow-purple-700">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <div className="mt-5 md:text-4xl tracking-wider font-extrabold text-purple-600 space-x-2">
@@ -114,7 +107,7 @@ const Login = () => {
                 <div className="text-sm cursor-pointer">
                   <Link
                     to="/forgotPassword"
-                    className="font-semibold text-gray-800 hover:text-gray-900"
+                    className="font-semibold text-teal-100 tracking-wide hover:text-teal-300"
                   >
                     Forgot password?
                   </Link>
@@ -157,19 +150,6 @@ const Login = () => {
             </div>
 
             <div>
-              {/* <button
-                // disabled={isPicUploading || isLoading}
-                type="submit"
-                className="flex w-full justify-center mt-5 rounded-md bg-orange-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                {isLoading ? (
-                  LoginLoader
-                ) : (
-                  <span className="text-base font-bold tracking-wider">
-                    Login
-                  </span>
-                )}
-              </button> */}
               <button
                 disabled={isLoading}
                 type="submit"
