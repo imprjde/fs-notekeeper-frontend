@@ -61,6 +61,7 @@ const Home = () => {
       setNotes(response.data);
       setIsloading(false);
     } catch (error) {
+      errorPopUP("OOPS! Failed to fetch your notes.");
       setIsloading(false);
     }
   };

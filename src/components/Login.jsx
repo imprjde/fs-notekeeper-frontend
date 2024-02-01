@@ -7,6 +7,7 @@ import { loginErrorNotify, loginNotify } from "../Helpers/Popups/popups";
 import { BASE_URL } from "../Helpers/constant";
 import { FaCopyright } from "react-icons/fa";
 import { LoginLoader } from "../Helpers/Loaders/Loaders";
+import { ToastContainer } from "react-toastify";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({
@@ -33,7 +34,6 @@ const Login = () => {
       setIsLoading(true);
       let { data } = await axios.post(`${BASE_URL}/api/users/login`, loginData);
 
-      console.log(data);
       if (data) {
         navigate("/");
       }
@@ -42,16 +42,13 @@ const Login = () => {
       loginNotify();
     } catch (error) {
       setIsLoading(false);
-      setErrorMessage(error?.response?.data?.message);
-      if (error.message === "") {
-        console.log("ERR", error.message);
-        loginErrorNotify();
-      }
+      loginErrorNotify();
     }
   };
 
   return (
     <div className="bg-gradient-to-b from-gray-900   to-purple-700   h-screen flex flex-col items-center  justify-center">
+      <ToastContainer />
       <div className="w-[90%]  px-5 md:w-[60%]  rounded-md  text-white pb-5  bg-gradient-to-t from-gray-900   to-purple-700 shadow-xl shadow-purple-700">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <div className="mt-5 md:text-4xl tracking-wider font-extrabold text-purple-600 space-x-2">

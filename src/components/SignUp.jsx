@@ -101,7 +101,7 @@ const Signup = () => {
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
-      signupErrorNotify(error.response.data.message);
+      signupErrorNotify("Signup failed. try again later.");
     }
   };
 

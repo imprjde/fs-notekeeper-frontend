@@ -16,8 +16,6 @@ const ResetPassword = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  console.log(isLoading);
-
   useEffect(() => {
     let userData = JSON.parse(localStorage.getItem("userInfo"));
     setUserInfo(userData);
@@ -27,7 +25,6 @@ const ResetPassword = () => {
     if (confirmPassword !== userInfo.password) {
       errorPopUP(" Password does not match");
     } else if (userInfo.password.length < 6) {
-      console.log("Password maust be atleast 6 letters");
       errorPopUP("Password must contain atleast 6 characters");
     } else {
       try {
@@ -44,7 +41,6 @@ const ResetPassword = () => {
           config
         );
 
-        console.log(response);
         if (response) {
           setIsLoading(false);
           passwordChangeSuccessNotify();

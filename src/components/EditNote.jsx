@@ -57,9 +57,9 @@ const EditNote = () => {
     e.preventDefault();
 
     if (
-      !editedData.title.trim() ||
-      !editedData.category.trim() ||
-      !editedData.content.trim()
+      !editedData?.title?.trim() ||
+      !editedData?.category?.trim() ||
+      !editedData?.content?.trim()
     ) {
       setIsLoading(false);
       createNoteValidationError();
@@ -75,22 +75,16 @@ const EditNote = () => {
           },
         };
 
-        const response = await axios.put(
-          `${BASE_URL}/api/notes/${id}`,
-          editedData,
-          config
-        );
+        await axios.put(`${BASE_URL}/api/notes/${id}`, editedData, config);
 
         noteUpdateSuccessNotify();
         setIsLoading(false);
         setTimeout(() => {
           navigate("/");
         }, 2000);
-        console.log(response);
       } catch (error) {
         setIsLoading(false);
         noteUpdateErrorNotify();
-        console.error("An error occurred:", error);
       }
     }
   };

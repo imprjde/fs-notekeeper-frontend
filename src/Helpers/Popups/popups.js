@@ -23,7 +23,7 @@ export const signupSuccessNotify = () => {
       borderRadius: "5px",
     },
     progressStyle: {
-      background: "#fff", // Set the background color of the progress bar to white
+      background: "#fff", 
     },
   });
 };

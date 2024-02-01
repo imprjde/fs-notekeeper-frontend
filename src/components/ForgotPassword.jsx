@@ -14,7 +14,6 @@ const ForgotPassword = () => {
     try {
       setIsLoading(true);
       const resp = await axios.post(`${BASE_URL}/api/resetPassword`, { email });
-      console.log(resp);
       setIsLoading(false);
       if (resp.status === 200) {
         notifyEmailSent();
@@ -23,6 +22,7 @@ const ForgotPassword = () => {
       emailSentError();
       setIsLoading(false);
     }
+
   };
   return (
     <div className="h-screen flex m-auto justify-center items-center bg-gradient-to-b from-purple-700 to-black">

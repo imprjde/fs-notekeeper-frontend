@@ -51,14 +51,12 @@ const Profile = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           setUserInfo({ ...userInfo, pic: data.url.toString() });
           setIsPicLoading(false);
         })
         .catch((error) => {
           setIsPicLoading(false);
           somethingWentWrongNotify();
-          console.log(error);
         });
     } else {
       picTypeErrorNotify();
@@ -66,7 +64,7 @@ const Profile = () => {
   };
 
   const handleSubmit = async () => {
-    if (userInfo.name.trim().length === 0) {
+    if (userInfo.name?.trim().length === 0) {
       profileUpdateValidationError("Name cannot be empty");
 
       return;
@@ -99,7 +97,6 @@ const Profile = () => {
         profileUpdateErrorNotify();
       }
     } else {
-      console.log("Invalid Email Format");
       profileUpdateValidationError("Invalid email format");
     }
   };
@@ -203,7 +200,7 @@ const Profile = () => {
               <div>
                 <input
                   onChange={(e) =>
-                    setUserInfo({ ...userInfo, email: e.target.value.trim() })
+                    setUserInfo({ ...userInfo, email: e.target.value?.trim() })
                   }
                   value={userInfo?.email}
                   placeholder="Email"

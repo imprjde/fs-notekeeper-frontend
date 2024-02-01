@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
   createNoteValidationError,
+  errorPopUP,
   noteCreatedNotify,
 } from "../Helpers/Popups/popups";
 import Header from "./Header";
@@ -19,17 +20,14 @@ const CreateNote = () => {
   const navigate = useNavigate();
   const { isLogoutModalOpen } = useContext(appContext);
 
-  console.log("HJHJHJ,", BASE_URL);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (
-      !formData.title.trim() ||
-      !formData.category.trim() ||
-      !formData.content.trim()
+      !formData?.title?.trim() ||
+      !formData?.category?.trim() ||
+      !formData?.content?.trim()
     ) {
       setIsLoading(false);
-      console.error("All fields must be filled.");
       createNoteValidationError();
       return;
     } else {
@@ -50,19 +48,15 @@ const CreateNote = () => {
         );
 
         if (response.data) {
-          console.log("NOTE CREATED");
           noteCreatedNotify();
           setIsLoading(false);
           setTimeout(() => {
             navigate("/");
           }, 2000);
         }
-        console.log(response);
       } catch (error) {
         setIsLoading(false);
-        console.error("An error occurred:", error);
-
-        //Add error popup here
+        errorPopUP("Failed to create note.");
       }
     }
   };
