@@ -22,7 +22,7 @@ const ResetPassword = () => {
   }, []);
 
   const handleSubmit = async () => {
-    if (confirmPassword !== userInfo.password) {
+    if (confirmPassword?.trim() !== userInfo?.password?.trim()) {
       errorPopUP(" Password does not match");
     } else if (userInfo.password.length < 6) {
       errorPopUP("Password must contain atleast 6 characters");
@@ -62,7 +62,7 @@ const ResetPassword = () => {
         <span>
           <input
             onChange={(e) =>
-              setUserInfo({ ...userInfo, password: e.target.value })
+              setUserInfo({ ...userInfo, password: e.target.value.trim() })
             }
             type="password"
             placeholder="Password"

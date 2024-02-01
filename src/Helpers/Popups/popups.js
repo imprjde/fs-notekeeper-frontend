@@ -23,7 +23,7 @@ export const signupSuccessNotify = () => {
       borderRadius: "5px",
     },
     progressStyle: {
-      background: "#fff", 
+      background: "#fff",
     },
   });
 };
@@ -163,7 +163,7 @@ export const loginNotify = () => {
 };
 
 export const loginErrorNotify = () => {
-  toast.error("Network Error", {
+  toast.error("Login Failed. Try again later.", {
     position: "top-center",
     autoClose: 2000,
     pauseOnHover: false,

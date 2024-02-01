@@ -39,10 +39,17 @@ const Login = () => {
       }
       localStorage.setItem("userInfo", JSON.stringify(data));
       setIsLoading(false);
-      loginNotify();
+      setTimeout(() => {
+        loginNotify();
+      }, 100);
     } catch (error) {
       setIsLoading(false);
-      loginErrorNotify();
+      if (error.response.status === 401) {
+        setErrorMessage(error.response.data.message);
+      }
+      if (error.response.status === 404) {
+        loginErrorNotify();
+      }
     }
   };
 

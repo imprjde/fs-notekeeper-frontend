@@ -57,7 +57,6 @@ const LogoutModal = () => {
                 viewBox="0 0 20 20"
               >
                 <path
-                  
                   stroke="currentColor"
                   strokeLinecap="round"
                   strokeLinejoin="round"
