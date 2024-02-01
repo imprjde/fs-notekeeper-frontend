@@ -272,7 +272,16 @@ const Home = () => {
                         <div className="flex m-auto  justify-between px-5">
                           <span className="font-bold">{index + 1})</span>
                           <span className="font-semibold flex h-full items-center tracking-wider">
-                            {note.title}
+                            <span className="hidden md:flex">
+                              {note.title.length > 75
+                                ? note.title.slice(0, 73) + "..."
+                                : note.title}
+                            </span>
+                            <span className="md:hidden">
+                              {note.title.length > 18
+                                ? note.title.slice(0, 15) + "..."
+                                : note.title}
+                            </span>
                             <motion.span
                               className="ml-1 text-gray-900"
                               animate={{ rotate: note.isOpen ? 180 : 0 }}
@@ -344,10 +353,7 @@ const Home = () => {
                             </CardBody>
                           </Card>
 
-                          <div
-                            id="dates"
-                            className="flex flex-col mt-1 text-left pl-2  "
-                          >
+                          <div className="flex flex-col mt-1 text-left pl-2  ">
                             <div>
                               <span className="text-sm text-gray-900 font-semibold">
                                 Created on: {convertTimestamp(note.createdAt)}

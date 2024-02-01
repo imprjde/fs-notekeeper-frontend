@@ -56,7 +56,11 @@ const EditNote = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!editedData.title || !editedData.category || !editedData.content) {
+    if (
+      !editedData.title.trim() ||
+      !editedData.category.trim() ||
+      !editedData.content.trim()
+    ) {
       setIsLoading(false);
       createNoteValidationError();
       return;

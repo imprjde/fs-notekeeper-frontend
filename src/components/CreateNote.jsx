@@ -23,11 +23,14 @@ const CreateNote = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.title || !formData.category || !formData.content) {
+    if (
+      !formData.title.trim() ||
+      !formData.category.trim() ||
+      !formData.content.trim()
+    ) {
       setIsLoading(false);
       console.error("All fields must be filled.");
       createNoteValidationError();
-
       return;
     } else {
       try {

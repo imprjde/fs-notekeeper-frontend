@@ -66,8 +66,7 @@ const Profile = () => {
   };
 
   const handleSubmit = async () => {
-    if (userInfo.name.length === 0) {
-      console.log("N Cannot be Empty");
+    if (userInfo.name.trim().length === 0) {
       profileUpdateValidationError("Name cannot be empty");
 
       return;
